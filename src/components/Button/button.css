@@ -1,0 +1,10 @@
+button{
+  background-color: var(--rest-color);
+  border: 0;
+  cursor: pointer;
+  padding: 10px 25px;
+  color: #000;
+  font-size: 17px;
+  transition: background-color 300ms ease-in-out;
+  margin: 20px auto;
+}

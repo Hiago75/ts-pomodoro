@@ -30,40 +30,6 @@ body {
   display: none;
 }
 
-.pomodoro{
-  background: #fff;
-  margin: 50px 20px;
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0,0,0, .3);
-}
-
-.pomodoro h4{
-  font-size: 35px;
-  text-align: center;
-}
-
-.pomodoro .timer{
-  font-size: 6rem;
-  text-align: center;
-}
-
-.pomodoro .controls{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-.pomodoro button{
-  background-color: var(--rest-color);
-  border: 0;
-  cursor: pointer;
-  padding: 10px 25px;
-  color: #000;
-  font-size: 17px;
-  transition: background-color 300ms ease-in-out;
-  margin: 20px auto;
-}
-
 .working .pomodoro button{
   background-color: var(--working-color);
   color: #fff;

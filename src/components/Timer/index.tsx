@@ -1,5 +1,6 @@
 import React from 'react';
-import { secondsToMinutes } from '../utils/seconds-to-minutes';
+import './timer.css';
+import { secondsToMinutes } from '../../utils/seconds-to-minutes';
 
 interface Props {
   mainTime: number;

@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import './pomodoro-timer.css';
 import useSound from 'use-sound';
-import { useInterval } from '../hooks/use-interval';
-import { Button } from './button';
-import { Timer } from './timer';
-import bellStart from '../sounds/bell-start.mp3';
-import bellFinish from '../sounds/bell-finish.mp3';
-import { secondsToTime } from '../utils/seconds-to-time';
+import { useInterval } from '../../hooks/use-interval';
+import { Button } from '../Button';
+import { Timer } from '../Timer';
+import bellStart from '../../sounds/bell-start.mp3';
+import bellFinish from '../../sounds/bell-finish.mp3';
+import { secondsToTime } from '../../utils/seconds-to-time';
 
 interface Props {
   pomodoroTime: number;
