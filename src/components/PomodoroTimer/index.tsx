@@ -6,6 +6,7 @@ import { Button } from '../Button';
 import { Timer } from '../Timer';
 import bellStart from '../../sounds/bell-start.mp3';
 import bellFinish from '../../sounds/bell-finish.mp3';
+import { secondsToMinutes } from '../../utils/seconds-to-minutes';
 import { secondsToTime } from '../../utils/seconds-to-time';
 
 interface Props {
@@ -75,6 +76,11 @@ export function PomodoroTimer(props: Props): JSX.Element {
   useEffect(() => {
     if (working) document.body.classList.add('working');
     if (resting) document.body.classList.remove('working');
+
+    if (working || resting)
+      document.title = `${working ? 'Time to work' : 'Time to rest'} - ${secondsToMinutes(
+        mainTime,
+      )}`;
 
     if (mainTime > 0) return;
 
