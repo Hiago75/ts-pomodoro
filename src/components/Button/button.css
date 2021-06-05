@@ -1,10 +1,18 @@
 button{
-  background-color: var(--rest-color);
-  border: 0;
+  background-color: transparent;
+  border: 1px solid white;
   cursor: pointer;
-  padding: 10px 25px;
+  height: 64px;
+  width: 64px;
   color: #000;
   font-size: 17px;
   transition: background-color 300ms ease-in-out;
   margin: 20px auto;
+  color: white;
+  border-radius: 50%;
+}
+
+.react-icons {
+  vertical-align: middle;
+  font-size: 25px;
 }

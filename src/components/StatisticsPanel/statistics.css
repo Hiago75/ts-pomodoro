@@ -1,0 +1,19 @@
+.statistics-panel{
+  background: rgba(255, 255, 255, 0.2);
+  margin: 50px 20px;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0,0,0, .3);
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.statistics-panel p{
+  font-size: 15px
+}
+
+.statistic-data{
+  font-size: 30px;
+}

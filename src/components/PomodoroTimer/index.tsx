@@ -1,4 +1,6 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
+import { FaPlay, FaPause, FaUndo } from 'react-icons/fa';
+import { MdSnooze } from 'react-icons/md';
 import './pomodoro-timer.css';
 import useSound from 'use-sound';
 import { useInterval } from '../../hooks/use-interval';
@@ -7,7 +9,7 @@ import { Timer } from '../Timer';
 import bellStart from '../../sounds/bell-start.mp3';
 import bellFinish from '../../sounds/bell-finish.mp3';
 import { secondsToMinutes } from '../../utils/seconds-to-minutes';
-import { secondsToTime } from '../../utils/seconds-to-time';
+import { PomodoroState } from '../../store/pomodoro-state-store';
 
 interface Props {
   pomodoroTime: number;
@@ -18,13 +20,14 @@ interface Props {
 
 export function PomodoroTimer(props: Props): JSX.Element {
   const [mainTime, setMainTime] = useState(props.pomodoroTime);
-  const [timeCounting, setTimeCounting] = useState(false);
-  const [working, setWorking] = useState(false);
+  const [wasCalled, setWasCalled] = useState(0);
+  const { pomodoroState, setPomodoroState } = useContext(PomodoroState);
+  const { working, timeCounting } = pomodoroState;
   const [resting, setResting] = useState(false);
-  const [cyclesQtdManager, setCyclesQtdManager] = useState(new Array(props.cycles - 1).fill(true));
 
+  const [cyclesQtdManager, setCyclesQtdManager] = useState(new Array(props.cycles - 1).fill(true));
   const [completedCycles, setCompletedCycles] = useState(0);
-  const [fullWorkingTime, setFullWorkingTime] = useState(0);
+
   const [numberOfPomodoros, setNumberOfPomodoros] = useState(0);
 
   const [playWorkSound] = useSound(bellStart);
@@ -34,25 +37,31 @@ export function PomodoroTimer(props: Props): JSX.Element {
   useInterval(
     () => {
       setMainTime(mainTime - 1);
-      if (working) setFullWorkingTime(fullWorkingTime + 1);
     },
     timeCounting ? 1000 : null,
   );
 
   //Start the work timer
   const configureWork = useCallback(() => {
-    setTimeCounting(true);
     setResting(false);
     playWorkSound();
-    setWorking(true);
+    setPomodoroState({ working: true, timeCounting: true });
     setMainTime(props.pomodoroTime);
-  }, [setTimeCounting, setResting, playWorkSound, setWorking, setMainTime, props.pomodoroTime]);
+  }, [setResting, playWorkSound, setPomodoroState, setMainTime, props.pomodoroTime]);
+
+  const startButtonHandler = () => {
+    if (wasCalled === 0) {
+      configureWork();
+      setWasCalled(1);
+    } else {
+      setPomodoroState({ working: working, timeCounting: !timeCounting });
+    }
+  };
 
   //Start the rest timer, receive an argument that defines if will be a long or a short rest time.
   const configureRest = useCallback(
     (long: boolean) => {
-      setTimeCounting(true);
-      setWorking(false);
+      setPomodoroState({ working: false, timeCounting: true });
       setResting(true);
       playRestSound();
 
@@ -62,15 +71,7 @@ export function PomodoroTimer(props: Props): JSX.Element {
         setMainTime(props.shortRestTime);
       }
     },
-    [
-      setTimeCounting,
-      setWorking,
-      setResting,
-      playRestSound,
-      setMainTime,
-      props.longRestTime,
-      props.shortRestTime,
-    ],
+    [setResting, playRestSound, setMainTime, props.longRestTime, props.shortRestTime],
   );
 
   useEffect(() => {
@@ -78,9 +79,9 @@ export function PomodoroTimer(props: Props): JSX.Element {
     if (resting) document.body.classList.remove('working');
 
     if (working || resting)
-      document.title = `${working ? 'Time to work' : 'Time to rest'} - ${secondsToMinutes(
-        mainTime,
-      )}`;
+      document.title = `${secondsToMinutes(mainTime)} - ${
+        working ? 'Time to work' : 'Time to rest'
+      } `;
 
     if (mainTime > 0) return;
 
@@ -111,23 +112,22 @@ export function PomodoroTimer(props: Props): JSX.Element {
 
   return (
     <div className="pomodoro">
-      <h4>It`s time to {working ? 'work' : 'rest'}</h4>
+      <h4>It's time to {working ? 'work' : 'rest'}</h4>
       <Timer mainTime={mainTime} />
 
       <div className="controls">
-        <Button text="Work" onClick={() => configureWork()} />
-        <Button text="Rest" onClick={() => configureRest(false)} />
         <Button
-          className={!working && !resting ? 'hidden' : ''}
-          text={timeCounting ? 'Pause' : 'Back to work'}
-          onClick={() => setTimeCounting(!timeCounting)}
+          text={<MdSnooze className="react-icons" />}
+          onClick={() => configureRest(false)}
+        ></Button>
+        <Button
+          className="main-btn"
+          text={
+            !timeCounting ? <FaPlay className="react-icons" /> : <FaPause className="react-icons" />
+          }
+          onClick={() => startButtonHandler()}
         />
-      </div>
-
-      <div className="details">
-        <p>Completed cycles: {completedCycles}</p>
-        <p>Hours working: {secondsToTime(fullWorkingTime)}</p>
-        <p>Completed pomodoros: {numberOfPomodoros}</p>
+        <Button text={<FaUndo className="react-icons" />} onClick={() => configureWork()}></Button>
       </div>
     </div>
   );

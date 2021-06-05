@@ -1,5 +1,5 @@
 .pomodoro{
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   margin: 50px 20px;
   padding: 20px;
   border-radius: 4px;
@@ -12,7 +12,15 @@
 }
 
 .pomodoro .controls{
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  text-align: center;
+}
+
+.pomodoro .main-btn{
+  height: 100px;
+  width: 100px;
+  margin: 0 15px;
+}
+
+.pomodoro .main-btn .react-icons{
+  font-size: 40px
 }

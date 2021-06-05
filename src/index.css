@@ -1,6 +1,6 @@
 :root{
   --working-color: #EF5D50;
-  --rest-color: #41e1ba;
+  --rest-color: #479dd3;
 }
 
 *{
@@ -8,6 +8,7 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
+  color: #fff;
 }
 
 body {
@@ -32,7 +33,6 @@ body {
 
 .working .pomodoro button{
   background-color: var(--working-color);
-  color: #fff;
 }
 
 .pomodoro .details{

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import './button.css';
 
 interface Props {
-  text: string;
+  text: string | ReactElement;
   onClick?: () => void;
   className?: string;
 }
