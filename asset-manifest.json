@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/ts-pomodoro/static/css/main.9f8af49c.chunk.css",
-    "main.js": "/ts-pomodoro/static/js/main.ea4fc792.chunk.js",
-    "main.js.map": "/ts-pomodoro/static/js/main.ea4fc792.chunk.js.map",
-    "runtime-main.js": "/ts-pomodoro/static/js/runtime-main.ecbf03aa.js",
-    "runtime-main.js.map": "/ts-pomodoro/static/js/runtime-main.ecbf03aa.js.map",
-    "static/js/2.0e367dd4.chunk.js": "/ts-pomodoro/static/js/2.0e367dd4.chunk.js",
-    "static/js/2.0e367dd4.chunk.js.map": "/ts-pomodoro/static/js/2.0e367dd4.chunk.js.map",
-    "static/js/3.20a4407a.chunk.js": "/ts-pomodoro/static/js/3.20a4407a.chunk.js",
-    "static/js/3.20a4407a.chunk.js.map": "/ts-pomodoro/static/js/3.20a4407a.chunk.js.map",
+    "main.css": "/ts-pomodoro/static/css/main.15b8b359.chunk.css",
+    "main.js": "/ts-pomodoro/static/js/main.73b93700.chunk.js",
+    "main.js.map": "/ts-pomodoro/static/js/main.73b93700.chunk.js.map",
+    "runtime-main.js": "/ts-pomodoro/static/js/runtime-main.42f7e1d1.js",
+    "runtime-main.js.map": "/ts-pomodoro/static/js/runtime-main.42f7e1d1.js.map",
+    "static/js/2.a8f6fe67.chunk.js": "/ts-pomodoro/static/js/2.a8f6fe67.chunk.js",
+    "static/js/2.a8f6fe67.chunk.js.map": "/ts-pomodoro/static/js/2.a8f6fe67.chunk.js.map",
+    "static/js/3.3fefe1b1.chunk.js": "/ts-pomodoro/static/js/3.3fefe1b1.chunk.js",
+    "static/js/3.3fefe1b1.chunk.js.map": "/ts-pomodoro/static/js/3.3fefe1b1.chunk.js.map",
     "index.html": "/ts-pomodoro/index.html",
-    "static/css/main.9f8af49c.chunk.css.map": "/ts-pomodoro/static/css/main.9f8af49c.chunk.css.map",
-    "static/js/2.0e367dd4.chunk.js.LICENSE.txt": "/ts-pomodoro/static/js/2.0e367dd4.chunk.js.LICENSE.txt",
-    "static/js/3.20a4407a.chunk.js.LICENSE.txt": "/ts-pomodoro/static/js/3.20a4407a.chunk.js.LICENSE.txt",
+    "static/css/main.15b8b359.chunk.css.map": "/ts-pomodoro/static/css/main.15b8b359.chunk.css.map",
+    "static/js/2.a8f6fe67.chunk.js.LICENSE.txt": "/ts-pomodoro/static/js/2.a8f6fe67.chunk.js.LICENSE.txt",
+    "static/js/3.3fefe1b1.chunk.js.LICENSE.txt": "/ts-pomodoro/static/js/3.3fefe1b1.chunk.js.LICENSE.txt",
     "static/media/bell-finish.6b59c479.mp3": "/ts-pomodoro/static/media/bell-finish.6b59c479.mp3",
     "static/media/bell-start.d01df824.mp3": "/ts-pomodoro/static/media/bell-start.d01df824.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.ecbf03aa.js",
-    "static/js/2.0e367dd4.chunk.js",
-    "static/css/main.9f8af49c.chunk.css",
-    "static/js/main.ea4fc792.chunk.js"
+    "static/js/runtime-main.42f7e1d1.js",
+    "static/js/2.a8f6fe67.chunk.js",
+    "static/css/main.15b8b359.chunk.css",
+    "static/js/main.73b93700.chunk.js"
   ]
 }
